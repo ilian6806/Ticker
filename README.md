@@ -10,7 +10,7 @@ var ticker = new Ticker(1000); // This is the default value
 var action = ticker.set(function () { /* do something */ }); // return action id
 
 ticker.clear(action); // remove action by id and stop ticker if needed
-ticker.clearAll();    // remove all actions and stop ticker
+ticker.clearAll();    // remove all actions and stop ticker interval
 
 ticker.start(); // start ticker interval (called automatically with first set call)
 ticker.tick();  // call all active actions on root object
