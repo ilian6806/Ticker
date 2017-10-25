@@ -63,7 +63,7 @@
     var timers = [];
 
     // generate random timer times
-    for (var i = 1000; i >= 1; i--) {
+    for (var i = 500; i >= 1; i--) {
         timers.push(rand(10000, 70000));
     }
 
