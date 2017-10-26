@@ -55,15 +55,50 @@
         }
     };
 
+    var timerCountSetting = {
+
+        name: 'timerCount',
+        input: document.getElementById('timers-count'),
+        default: 10000,
+        current: 10000,
+
+        get: function () {
+            var value = localStorage.getItem(this.name);
+            return value ? parseInt(value) : this.default;
+        },
+        set: function (value) {
+            this.current = (value && parseInt(value)) ? parseInt(value) : this.default;
+            this.input.value = this.current;
+            localStorage.setItem(this.name, this.current);
+        },
+        init: function () {
+
+            if (!localStorage.getItem(this.name)) {
+                this.set(this.default);
+            } else {
+                this.set(this.get());
+            }
+
+            return this;
+        }
+    };
+
     var isUsed = tickerSetting.init().get();
+    var timersCount = timerCountSetting.init().get();
 
     var container = document.getElementById('container');
+    var reloadBtn = document.getElementById('reload-button');
+
+    reloadBtn.onclick = function () {
+        timerCountSetting.set(timerCountSetting.input.value);
+        window.location.reload();
+    };
 
     var ticker = new Ticker();
     var timers = [];
 
     // generate random timer times
-    for (var i = 500; i >= 1; i--) {
+    for (var i = timersCount; i >= 1; i--) {
         timers.push(rand(10000, 70000));
     }
 

@@ -7,12 +7,32 @@ body {
     color: #C8C9CA;
 }
 
+:focus { outline:none; }
+::-moz-focus-inner { border:0; }
+
 input[type="checkbox"] {
     width: 25px;
     height: 25px;
     vertical-align: middle;
     cursor: pointer;
 }
+
+input[type="number"] {
+    min-width: 150px;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+input[type="button"] {
+    color: white;
+    background: gray;
+    vertical-align: middle;
+    padding: 2px 12px;
+    border-radius: 3px;
+    outline: 0;
+    cursor: pointer;
+}
+
 
 #container {
     width: 100%;
@@ -21,7 +41,7 @@ input[type="checkbox"] {
 
 .header {
     cursor: pointer;
-    margin: 25px 30px;
+    margin: 35px 30px;
     padding: 10px 0;
     border-bottom: 1px solid black;
 }
