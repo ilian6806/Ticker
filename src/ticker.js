@@ -121,6 +121,26 @@
 
 
     /**
+     * Get debug info
+     */
+    Ticker.prototype.debug = function () {
+
+        var debugInfo = {
+            isTicking: isTicking,
+            actions: {}
+        };
+
+        for (var id in actions) {
+            if (actions.hasOwnProperty(id) && is.func(actions[id])) {
+                debugInfo.actions[id] = actions[id].toString();
+            }
+        }
+
+        return debugInfo;
+    };
+
+
+    /**
      * Basic type checker
      */
     var is = {
